@@ -3,8 +3,8 @@ import pandas as pd
 from utils.model import Perceptron
 
 def main(data, modelName, plotName, eta, epochs):
-    df_OR = pd.DataFrame(data)
-    X, y = prepare_data(df_OR)
+    df_AND = pd.DataFrame(data)
+    X, y = prepare_data(df_AND)
 
 
     model = Perceptron(eta=eta, epochs=epochs)
@@ -14,17 +14,17 @@ def main(data, modelName, plotName, eta, epochs):
 
     model.save(filename=modelName, model_dir='model')
 
-    save_plot(df_OR, model, plotName)
+    save_plot(df_AND, model, plotName)
 
 if __name__ == '__main__':
-    OR = {
+    AND = {
     'x1': [0,0,1,1],
     'x2': [0,1,0,1],
-    'y':  [0,1,1,1]
+    'y':  [0,0,0,1]
     }
     ETA = 0.3
     EPOCHS = 10
-    main(data=OR, modelName='or.model', plotName= 'or.png', eta=ETA, epochs=EPOCHS)
+    main(data=AND, modelName='and.model', plotName= 'and.png', eta=ETA, epochs=EPOCHS)
 
 
 
