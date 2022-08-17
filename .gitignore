@@ -1,3 +1,6 @@
 venv/
 plots/
 model/
+logs/
+
+__pycache__/
